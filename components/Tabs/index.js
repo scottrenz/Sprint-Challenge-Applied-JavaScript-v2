@@ -8,7 +8,6 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-
 async function getData() {
     let wait;
   wait = await axios.get('https://lambda-times-backend.herokuapp.com/topics')
