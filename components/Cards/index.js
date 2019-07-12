@@ -25,7 +25,7 @@ async function getData() {
   .then (data =>   
       {
           console.log(data)
-    //  makeTabs(data.data.topics)
+      makeArts(data.data.articles)
      return wait;}
   
   )
@@ -35,3 +35,39 @@ async function getData() {
             }
              )
     }
+    getData();
+
+
+  tops = document.querySelectorAll('.title')
+
+  function makeArts(articles) {
+    console.log(articles)
+    console.log(Object.keys(articles));
+artKeys = Object.keys(articles)
+artEntries =  Object.entries(articles)
+    //  let tabs=[];
+
+//  tabsAll = document.createElement('div')
+//  tabsAll.setAttribute('data-tab','all')
+//  tabsAll.classList.add('tab')
+//  tabsAll.innerHTML = 'ALL' 
+//  tops[0].appendChild(tabsAll)
+
+ for(i=0;i<artKeys.length;i++)
+ {
+    console.log('key',artKeys[i])
+    console.log('entry',artEntries[i])
+    for(j=0;j<artEntries[i][1].length;j++)
+    {
+        console.log('entry array headline',artEntries[i][1][j]['headline'])
+        console.log('entry array authorName',artEntries[i][1][j]['authorName'])
+        console.log('entry array authorPhoto',artEntries[i][1][j]['authorPhoto'])
+    }
+    //      tabs[i] = document.createElement('div')
+//      tabs[i].setAttribute('data-tab',topics[i])
+//      tabs[i].classList.add('tab')
+//      tabs[i].innerHTML = topics[i].toUpperCase() 
+//      tops[0].appendChild(tabs[i])
+ }
+
+ }
