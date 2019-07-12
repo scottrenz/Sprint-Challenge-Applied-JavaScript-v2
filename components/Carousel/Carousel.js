@@ -47,8 +47,6 @@ divBtnR.innerHTML = '>'
 divBtnL.setAttribute('data-btn','L')
 divBtnR.setAttribute('data-btn','R')
 
-// img0.style = 'display: flex;'
-
 class Carousel {
   constructor(element){
     this.element =  element;

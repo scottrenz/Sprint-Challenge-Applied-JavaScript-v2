@@ -40,5 +40,5 @@ async function getData() {
      tops[0].appendChild(tabs[i])
  }
 
- }
-tops[0].style = 'top: 50;width: 10%;display: flex;justify-content: space-between;align-items: center;padding: 1.0rem;background-color: @nav-bg;height: 5.8rem;'
+ } 
+tops[0].style = 'width: 10%;display: flex;justify-content: space-between;align-items: center;padding: 1.0rem;height: 5.8rem;'
