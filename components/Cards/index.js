@@ -73,7 +73,7 @@ const cards = document.querySelectorAll('.cards-container');
         divAuth.appendChild(divImg)
         divImg.appendChild(img)
         divAuth.appendChild(span)
-
+        img.style = 'height: 50px;'
         
     }
  }
