@@ -24,7 +24,6 @@ async function getData() {
   wait = await axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then (data =>   
       {
-          console.log(data)
       makeArts(data.data.articles)
      return wait;}
   
@@ -41,8 +40,6 @@ async function getData() {
   tops = document.querySelectorAll('.title')
 
   function makeArts(articles) {
-    console.log(articles)
-    console.log(Object.keys(articles));
 artKeys = Object.keys(articles)
 artEntries =  Object.entries(articles)
     //  let tabs=[];
@@ -52,22 +49,33 @@ artEntries =  Object.entries(articles)
 //  tabsAll.classList.add('tab')
 //  tabsAll.innerHTML = 'ALL' 
 //  tops[0].appendChild(tabsAll)
+const cards = document.querySelectorAll('.cards-container');
 
- for(i=0;i<artKeys.length;i++)
+  for(i=0;i<artKeys.length;i++)
  {
-    console.log('key',artKeys[i])
-    console.log('entry',artEntries[i])
     for(j=0;j<artEntries[i][1].length;j++)
     {
-        console.log('entry array headline',artEntries[i][1][j]['headline'])
-        console.log('entry array authorName',artEntries[i][1][j]['authorName'])
-        console.log('entry array authorPhoto',artEntries[i][1][j]['authorPhoto'])
+        let divCard = document.createElement('div')
+        let divHead = document.createElement('div')
+        let divAuth = document.createElement('div')
+        let divImg = document.createElement('div')
+        let img = document.createElement('img')
+        let span = document.createElement('span')
+        divCard.setAttribute('class','card')
+        divHead.setAttribute('class','headline')
+        divImg.setAttribute('class','img-container')
+        divHead.innerHTML = artEntries[i][1][j]['headline']
+        img.src = artEntries[i][1][j]['authorPhoto']
+        span.innerHTML = 'By ' + artEntries[i][1][j]['authorName']
+        cards[0].appendChild(divCard)
+        divCard.appendChild(divHead)
+        divCard.appendChild(divAuth)
+        divAuth.appendChild(divImg)
+        divImg.appendChild(img)
+        divAuth.appendChild(span)
+
+        
     }
-    //      tabs[i] = document.createElement('div')
-//      tabs[i].setAttribute('data-tab',topics[i])
-//      tabs[i].classList.add('tab')
-//      tabs[i].innerHTML = topics[i].toUpperCase() 
-//      tops[0].appendChild(tabs[i])
  }
 
  }
