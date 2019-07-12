@@ -42,13 +42,7 @@ async function getData() {
   function makeArts(articles) {
 artKeys = Object.keys(articles)
 artEntries =  Object.entries(articles)
-    //  let tabs=[];
 
-//  tabsAll = document.createElement('div')
-//  tabsAll.setAttribute('data-tab','all')
-//  tabsAll.classList.add('tab')
-//  tabsAll.innerHTML = 'ALL' 
-//  tops[0].appendChild(tabsAll)
 const cards = document.querySelectorAll('.cards-container');
 
   for(i=0;i<artKeys.length;i++)

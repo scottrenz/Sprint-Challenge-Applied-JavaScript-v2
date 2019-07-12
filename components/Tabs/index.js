@@ -31,12 +31,6 @@ async function getData() {
   function makeTabs(topics) {
  let tabs=[];
 
- tabsAll = document.createElement('div')
- tabsAll.setAttribute('data-tab','all')
- tabsAll.classList.add('tab')
- tabsAll.innerHTML = 'ALL' 
- tops[0].appendChild(tabsAll)
-
  for(i=0;i<topics.length;i++)
  {
      tabs[i] = document.createElement('div')
