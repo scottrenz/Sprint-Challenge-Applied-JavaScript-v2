@@ -17,3 +17,21 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+
+async function getData() {
+    let wait;
+  wait = await axios.get('https://lambda-times-backend.herokuapp.com/articles')
+  .then (data =>   
+      {
+          console.log(data)
+    //  makeTabs(data.data.topics)
+     return wait;}
+  
+  )
+  
+    .catch (data => { 
+      console.log('data error',data)
+            }
+             )
+    }
