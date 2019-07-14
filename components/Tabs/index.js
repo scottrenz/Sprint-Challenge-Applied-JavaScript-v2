@@ -114,7 +114,6 @@ headClass.forEach(
   function(currentValue) { 
  for(i=0;i<headlines.length;i++)
  {
-
   if(headlines[i].headline == currentValue.innerHTML)
      { currentValue.parentElement.style = 'display: flex'
     }
