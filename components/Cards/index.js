@@ -68,7 +68,3 @@ const cards = document.querySelectorAll('.cards-container');
     }
  }
  }
-<<<<<<< HEAD
-
-=======
->>>>>>> a7c741f9a7b8a0cd2f50c960338bbf5ec054ad58
