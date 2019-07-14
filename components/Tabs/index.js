@@ -35,22 +35,25 @@ async function getData() {
      tabs[i].innerHTML = topics[i].toUpperCase() 
      tabs[i].addEventListener('click', function() { getDataX.call(this);}, false);
      tops[0].appendChild(tabs[i])
- }
+     if(i == topics.length - 1)
+     {
+  i++
+  tabs[i] = document.createElement('div')
+  tabs[i].classList.add('tab')
+  tabs[i].innerHTML = 'ALL' 
+  tabs[i].addEventListener('click', function() { getDataX.call(this);}, false);
+  tops[0].appendChild(tabs[i])
+
+     }
+  
+    }
 
  } 
 tops[0].style = 'width: 10%;display: flex;justify-content: space-between;align-items: center;padding: 1.0rem;height: 5.8rem;'
 let topicName = ''
   
    function getDataX() {
-let tpcx = this.innerHTML.toLowerCase()
-let tpc = ''
-for (i=0;i<tpcx.length;i++)
-{
-  if (tpcx[i] === ' ' || tpcx[i] === '.')
-  {i = tpcx.length}
-  else
-{tpc = tpc + tpcx[i] }     
- }
+let tpc = this.innerHTML
     axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then (data =>  { 
       makeArtsX(data.data.articles,tpc)
@@ -71,10 +74,30 @@ for (i=0;i<tpcx.length;i++)
     xxx[k] = {topic: artEntries[i][0], headline: artEntries[i][1][j]['headline']}
     k = k + 1
         }}
-let headlines = xxx.filter(obj => obj.topic === tpc);
+        let headlines = xxx;
+
+        if(tpc != 'ALL')
+       {headlines = xxx.filter(obj =>   tpc.toLowerCase().startsWith(obj.topic));}
 let headlineX = '';
 headlines.forEach(function(item) {
   headlineX = headlineX + item.headline + "\r \n"
 })
 alert(headlineX)
-   } 
+const headClass = document.querySelectorAll('.headline')
+
+headClass.forEach( 
+  function(currentValue) { 
+    currentValue.parentElement.style = 'display: none'
+  });
+
+headClass.forEach( 
+  function(currentValue) { 
+ for(i=0;i<headlines.length;i++)
+ {
+
+  if(headlines[i].headline == currentValue.innerHTML)
+     { currentValue.parentElement.style = 'display: flex'
+    }
+ }
+    })
+} 
