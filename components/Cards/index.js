@@ -26,16 +26,13 @@ async function getData() {
       {
       makeArts(data.data.articles)
      return wait;}
-  
   )
-  
     .catch (data => { 
       console.log('data error',data)
             }
              )
     }
     getData();
-
 
   tops = document.querySelectorAll('.title')
 
@@ -67,9 +64,7 @@ const cards = document.querySelectorAll('.cards-container');
         divAuth.appendChild(divImg)
         divImg.appendChild(img)
         divAuth.appendChild(span)
-        img.style = 'height: 50px;'
-        
+        img.style = 'height: 50px;'      
     }
  }
-
  }
