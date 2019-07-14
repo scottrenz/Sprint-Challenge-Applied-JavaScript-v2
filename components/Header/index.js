@@ -27,6 +27,14 @@ function Header() {
     spanDate.innerHTML = 'SMARCH 28, 2019'
     h1.innerHTML = 'Lambda Times'
     spanTemp.innerHTML = '98°'
-
 }
 Header();
+
+function sizerHead() {
+    if (window.innerWidth < 660)
+    {h1.style = 'font-size: 26px;'}
+    else
+    {h1.style = ''}
+}
+sizerHead();
+window.addEventListener('resize', function() { sizerHead.call(this);}, false);
